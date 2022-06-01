@@ -24,6 +24,7 @@ public class GridManager : MonoBehaviour
 
 
 
+
     void Awake()
     {
         Debug.Log("HI!!!!!!!!");
