@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6698b770d0f75147852ada7386bd2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectedPlayer: {fileID: 0}
 --- !u!4 &724817050
 Transform:
   m_ObjectHideFlags: 0
@@ -623,3 +624,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
+  faction: 0

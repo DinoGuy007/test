@@ -32,6 +32,26 @@ public class Tile : MonoBehaviour
         _highlight.SetActive(false);
     }
 
+
+    private void OnMouseDown()
+    {
+        if (GameManager.Instance.gameState != GameState.PlayerTurn) return;
+
+        if(OccupiedUnit != null) //tiles are only occupied if a unit is on the tile
+        {
+            if (OccupiedUnit.faction == Faction.player) UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit); //if the faction is player, select it
+            else
+            {
+                if(UnitManager.instance.SelectedPlayer != null) //if a player is already selected (add a range/legal path check)
+                {
+                    var enemy = (BaseEnemy)OccupiedUnit;
+                    Destroy(enemy.gameObject); //put this after enemy health = 0;
+                    UnitManager.instance.SetSelectedPlayer(null); //unselected player
+                }
+            }
+        }
+    }
+
     public void SetUnit(BaseUnit unit)
     {
 

@@ -29,6 +29,7 @@ public class GridManager : MonoBehaviour
     {
         Debug.Log("HI!!!!!!!!");
         InstanceG = this;
+        GenerateGrid();
     }
     
 

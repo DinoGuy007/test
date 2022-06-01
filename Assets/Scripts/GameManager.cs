@@ -72,7 +72,8 @@ public class GameManager : MonoBehaviour
                 break;//breaks are similar to the return statement, as they stop the other things with cases from running, but the other code beneath it gets run as well 
             case GameState.GenerateGrid:
                 Debug.Log("test");
-                GridManager.InstanceG.GenerateGrid();
+                //
+                //GridManager.InstanceG.GenerateGrid();
                 break;
             case GameState.SpawnPlayer:
                 UnitManager.instance.SpawnPlayer();
