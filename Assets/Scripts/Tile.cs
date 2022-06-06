@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
+    public bool isNull = false;
+    public string TileName;
+
+
     [SerializeField] private Color _baseColor, _offsetColor;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
@@ -25,11 +29,13 @@ public class Tile : MonoBehaviour
     void OnMouseEnter()
     {
         _highlight.SetActive(true);
+        MenuManager.Instance.ShowTileInfo(this, false); //show the ui
     }
 
-    void OnMouseExit()
+    void OnMouseExit() //problem here
     {
         _highlight.SetActive(false);
+        MenuManager.Instance.ShowTileInfo(this, true); //stop showing the ui
     }
 
 
@@ -39,17 +45,34 @@ public class Tile : MonoBehaviour
 
         if(OccupiedUnit != null) //tiles are only occupied if a unit is on the tile
         {
-            if (OccupiedUnit.faction == Faction.player) UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit); //if the faction is player, select it
+            if (OccupiedUnit.faction == Faction.player) UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, false); //if the faction is player, select it
             else
             {
                 if(UnitManager.instance.SelectedPlayer != null) //if a player is already selected (add a range/legal path check)
                 {
                     var enemy = (BaseEnemy)OccupiedUnit;
-                    Destroy(enemy.gameObject); //put this after enemy health = 0;
-                    UnitManager.instance.SetSelectedPlayer(null); //unselected player
+                    enemy.health = enemy.health - GameManager.Instance.power; //enemy health goes down by power
+                    //if (enemy.health <= 0)
+                    //{
+                      //  Destroy(enemy.gameObject);
+                    //}
+                    UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
                 }
             }
         }
+
+
+        else
+        {
+            if(UnitManager.instance.SelectedPlayer != null)
+            {
+                SetUnit(UnitManager.instance.SelectedPlayer);
+                UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
+            }
+        }
+
+
+
     }
 
     public void SetUnit(BaseUnit unit)

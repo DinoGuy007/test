@@ -99,3 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OccupiedTile: {fileID: 0}
   faction: 1
+  UnitName: Evil Skull
+  health: 2

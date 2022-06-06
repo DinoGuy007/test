@@ -10,6 +10,7 @@ public class BaseUnit : MonoBehaviour
 
     public Faction faction;
 
+    public string UnitName;
 
 
 }

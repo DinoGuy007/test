@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEditor;
 public class UnitManager : MonoBehaviour
 {
     public static UnitManager instance;
@@ -64,9 +64,23 @@ public class UnitManager : MonoBehaviour
         return (T)_units.Where(u => u.Faction == faction).OrderBy(o => Random.value).First().UnitPrefab;
     }
 
-    public void SetSelectedPlayer(BasePlayer player)
+
+
+
+    public void SetSelectedPlayer(BasePlayer player, bool isNull)
     {
-        SelectedPlayer = player;
+
+
+        
+            SelectedPlayer = player;
+            MenuManager.Instance.ShowSelectedPlayer(player, false);
+
+        if (isNull)
+        {
+            MenuManager.Instance.ShowSelectedPlayer(player, true);
+        }
+
+
     }
 
 

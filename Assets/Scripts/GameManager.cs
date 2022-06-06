@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Collections;
-
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
 
    
-    //public static event Action<>  
+    //public static event Action<>;  
     //something is wrong and Action is giving an error
 
 
     public int money;
     public int health = 5;
-    public int power = 0;
+    public int power = 1;
     public int experience = 0;
     public int damage = 3;
     public int level = 1;
