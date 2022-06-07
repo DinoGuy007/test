@@ -8,6 +8,10 @@ public class BaseEnemy : BaseUnit
 
   
      public int health = 2;
+    public int speed = 1; 
+
+
+    //if(GameState.)
 
  
 

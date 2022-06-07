@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class Pathfinding : MonoBehaviour
 {
@@ -13,11 +15,12 @@ public class Pathfinding : MonoBehaviour
         while (toSearch.Any())
         {
             var current = toSearch[0]; //sets first part of toSearch array
+            
 
             foreach(var t in toSearch) //checks if the other nodes have better F scores
-            
-                if(t.F < current.F || t.F && t.H < current.H) //or the same F score and lower H cost
                 
+                if(t.F < current.F || t.F == current.F && t.H < current.H) //or the same F score and lower H cost
+
                     current = t; //current is the best choice
                 
                 processed.Add(current);
@@ -62,7 +65,7 @@ public class Pathfinding : MonoBehaviour
 
         }
 
-        Debug.Log("messed up") //so I know
+        Debug.Log("messed up"); //so I know
         return null; //if it messes up
     
 

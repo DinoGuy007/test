@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,10 +16,10 @@ public class BaseNode {
 
     public void SetG(float g) => G = g; //sets the variable G to the new g
 
-    public void SetH(float h) => H = h; 
+    public void SetH(float h) => H = h;
 
-
-        
-    
-   
+    internal float GetDistance(object neighbor)
+    {
+        throw new NotImplementedException();
+    }
 }

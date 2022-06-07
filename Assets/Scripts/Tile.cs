@@ -53,7 +53,7 @@ public class Tile : MonoBehaviour
                     var enemy = (BaseEnemy)OccupiedUnit;
                     enemy.health = enemy.health - GameManager.Instance.power; //enemy health goes down by power
                    
-                    UnitManager.instance.SetSelectedPlayer((BasePlayer), true); //unselect player
+                    UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
                 }
             }
         }
@@ -63,6 +63,11 @@ public class Tile : MonoBehaviour
         {
             if(UnitManager.instance.SelectedPlayer != null)
             {
+
+
+
+                //Pathfinding.FindPath(Occupied Unit, )
+
                 SetUnit(UnitManager.instance.SelectedPlayer); //set unit to player
                 UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
             }
