@@ -6,7 +6,7 @@ using System;
 using Random = UnityEngine.Random;
 
 public class GridManager : MonoBehaviour
-    
+    //need to add a way to set the ui to a certain spot on the map
 {
 
     public static GridManager InstanceG;
@@ -18,7 +18,6 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Tile _grassTile, _boulderTile;
 
     [SerializeField] private Transform _cam;
-
 
     private Dictionary<Vector2, Tile> _tiles;
 

@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
         MenuManager.Instance.ShowTileInfo(this, false); //show the ui
     }
 
-    void OnMouseExit() //problem here
+    void OnMouseExit() 
     {
         _highlight.SetActive(false);
         MenuManager.Instance.ShowTileInfo(this, true); //stop showing the ui
@@ -52,11 +52,8 @@ public class Tile : MonoBehaviour
                 {
                     var enemy = (BaseEnemy)OccupiedUnit;
                     enemy.health = enemy.health - GameManager.Instance.power; //enemy health goes down by power
-                    //if (enemy.health <= 0)
-                    //{
-                      //  Destroy(enemy.gameObject);
-                    //}
-                    UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
+                   
+                    UnitManager.instance.SetSelectedPlayer((BasePlayer), true); //unselect player
                 }
             }
         }
@@ -66,7 +63,7 @@ public class Tile : MonoBehaviour
         {
             if(UnitManager.instance.SelectedPlayer != null)
             {
-                SetUnit(UnitManager.instance.SelectedPlayer);
+                SetUnit(UnitManager.instance.SelectedPlayer); //set unit to player
                 UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
             }
         }
