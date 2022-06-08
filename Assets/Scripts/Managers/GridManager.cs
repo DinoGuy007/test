@@ -42,7 +42,7 @@ public class GridManager : MonoBehaviour
                 var randomtile = Random.Range(0, 6) == 3 ? _boulderTile : _grassTile; //if the random number between 0 and 6 is 3, spawn a boulder. could add more logic here
                
                 var spawnedTile = Instantiate(randomtile, new Vector3(x, y), Quaternion.identity); //spawns the random tile
-                spawnedTile.name = $"Tile{x} {y}";
+                spawnedTile.name = "Tile" + x + " " + y;
 
 
                 var isOffset = (x + y) % 2 == 1; //checkerboard

@@ -7,6 +7,10 @@ using System;
 public class Pathfinding : MonoBehaviour
 {
   
+
+    
+
+
     public static List<BaseNode> FindPath(BaseNode startNode, BaseNode targetNode)
     {
         var toSearch = new List<BaseNode>() { startNode };

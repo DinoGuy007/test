@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
             case GameState.PlayerTurn:
                 break;
             case GameState.EnemyTurn:
+                BaseEnemy.Instance.doStuff();
                 break;
             case GameState.Shop:
                 break;

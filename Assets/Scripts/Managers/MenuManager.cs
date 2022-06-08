@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour
     public void ShowTileInfo(Tile tile, bool isNull) //tile can't be null, change in tile
     {
 
-        if(isNull)
+        if(isNull || tile == null)
         {
             _tileObject.SetActive(false);
             _tileUnitObject.SetActive(false);

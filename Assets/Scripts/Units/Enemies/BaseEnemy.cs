@@ -5,14 +5,17 @@ using UnityEngine;
 public class BaseEnemy : BaseUnit
 
 {
-
+    public static BaseEnemy Instance;
   
      public int health = 2;
     public int speed = 1; 
 
 
-    //if(GameState.)
-
+    
+    public void doStuff()
+    {
+        
+    }
  
 
     // Start is called before the first frame update

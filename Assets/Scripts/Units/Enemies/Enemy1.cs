@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Enemy1 : BaseEnemy
 {
+    //skeleton
+
+
+    void moveAway()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +21,6 @@ public class Enemy1 : BaseEnemy
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
