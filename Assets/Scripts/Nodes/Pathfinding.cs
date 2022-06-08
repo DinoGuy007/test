@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using System;
 
 public class Pathfinding : MonoBehaviour
 {
+
+
   
     public static List<BaseNode> FindPath(BaseNode startNode, BaseNode targetNode)
     {
         var toSearch = new List<BaseNode>() { startNode };
+        //Assets\Scripts\Nodes\Pathfinding.cs(14,25): error CS1061: 'List<BaseNode>' does not contain a definition for 'Any' and no accessible extension method 'Any' accepting a first argument of type 'List<BaseNode>' could be found (are you missing a using directive or an assembly reference?)
+
+
         var processed = new List<BaseNode>();
 
         while (toSearch.Any())
         {
             var current = toSearch[0]; //sets first part of toSearch array
-            
 
             foreach(var t in toSearch) //checks if the other nodes have better F scores
+            
+                if(t.F < current.F || t.F && t.H < current.H) //or the same F score and lower H cost
                 
-                if(t.F < current.F || t.F == current.F && t.H < current.H) //or the same F score and lower H cost
-
                     current = t; //current is the best choice
                 
                 processed.Add(current);
