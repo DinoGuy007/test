@@ -8,7 +8,7 @@ public class Enemy2 : BaseEnemy
 {
 
 
-    //fireElemental
+   
 
 
     // Start is called before the first frame update
