@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//occupied tile might be messed up
 public class Tile : MonoBehaviour
 {
     public bool isNull = false;
@@ -12,6 +12,7 @@ public class Tile : MonoBehaviour
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private GameObject _highlight;
     [SerializeField] private bool isWalkable;
+    [SerializeField] public int tileCordsX, tileCordsY;
 
     public BaseUnit OccupiedUnit;
     public bool Walkable => isWalkable && OccupiedUnit == null;  //checks if the tile is walkable and not occupied
@@ -29,7 +30,7 @@ public class Tile : MonoBehaviour
     void OnMouseEnter()
     {
         _highlight.SetActive(true);
-        MenuManager.Instance.ShowTileInfo(this, false); //show the ui
+        MenuManager.Instance.ShowTileInfo(this, false); //show the ui   (this is null for some reason)
     }
 
     void OnMouseExit() 
@@ -54,6 +55,7 @@ public class Tile : MonoBehaviour
                     enemy.health = enemy.health - GameManager.Instance.power; //enemy health goes down by power
                    
                     UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
+                    GameManager.Instance.updateGameState(GameState.EnemyTurn);
                 }
             }
         }
@@ -70,6 +72,7 @@ public class Tile : MonoBehaviour
 
                 SetUnit(UnitManager.instance.SelectedPlayer); //set unit to player
                 UnitManager.instance.SetSelectedPlayer((BasePlayer)OccupiedUnit, true); //unselect player
+                GameManager.Instance.updateGameState(GameState.EnemyTurn);
             }
         }
 
